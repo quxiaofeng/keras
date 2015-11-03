@@ -1,20 +1,20 @@
-## Usage of callbacks
+## 回调（callbacks）的用法
 
-A callback is a set of functions to be applied at given stages of the training procedure. You can use callbacks to get a view on internal states and statistics of the model during training. You can pass a list of callbacks (as the keyword argument `callbacks`) to the `.fit()` method of the `Sequential` model. The relevant methods of the callbacks will then be called at each stage of the training. 
+回调函数是一组用于训练过程中某些阶段的函数。在训练的过程中使用回调函数，可以检查模型的内部状态和统计信息。在 `Sequential` （序列）模型的 `.fit()` （训练）方法中，使用关键字 `callbacks` 参数，可以传递多个回调函数。训练时，就会自动调用与这些回调函数相关的方法。
 
 ---
 
-## Base class
+## 基类
 
 ```python
 keras.callbacks.Callback()
 ```
-- __Properties__:
-    - __params__: dict. Training parameters (eg. verbosity, batch size, number of epochs...).
-    - __model__: `keras.models.Model`. Reference of the model being trained.
-- __Methods__:
-    - __on_train_begin__(logs={}): Method called at the beginning of training.
-    - __on_train_end__(logs={}): Method called at the end of training.
+- __属性（Properties）__:
+    - __参数（params）__: dict. Training parameters (eg. verbosity, batch size, number of epochs...).
+    - __模型（model）__: `keras.models.Model`. Reference of the model being trained.
+- __方法（Methods）__:
+    - __on_train_begin__(logs={}): 训练开始时调用该方法。
+    - __on_train_end__(logs={}): 训练结束时调用该方法。
     - __on_epoch_begin__(epoch, logs={}): Method called at the beginning of epoch `epoch`.
     - __on_epoch_end__(epoch, logs={}): Method called at the end of epoch `epoch`.
     - __on_batch_begin__(batch, logs={}): Method called at the beginning of batch `batch`.
