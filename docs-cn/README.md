@@ -1,9 +1,9 @@
-# Keras Documentation
+# Keras 文档
 
-The source for Keras documentation is in this directory under `sources/`. 
-Our documentation uses extended Markdown, as implemented by [MkDocs](http://mkdocs.org).
+Keras 文档的源文件在这个目录下 `sources/`。
+此文档使用拓展的 Markdown 语法，具体实现参考 [MkDocs](http://mkdocs.org).
 
-## Building the documentation
+## 文档的编译
 
-- install MkDocs: `sudo pip install mkdocs`
-- `cd` to the `docs/` folder and run: `mkdocs serve`
+- 安装 MkDocs: `sudo pip install mkdocs`
+- `cd` 进入到 `docs/` 目录然后运行 `mkdocs serve`
