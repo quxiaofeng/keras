@@ -1,7 +1,7 @@
 
-## Usage of activations
+## 激活函数的用法
 
-Activations can either be used through an `Activation` layer, or through the `activation` argument supported by all forward layers:
+激活函数通过 `Activation` （激活）层来使用，也可以用 `activation` 参数在所有的前向传播层使用。举例如下：
 
 ```python
 from keras.layers.core import Activation, Dense
@@ -9,12 +9,12 @@ from keras.layers.core import Activation, Dense
 model.add(Dense(64))
 model.add(Activation('tanh'))
 ```
-is equivalent to:
+等价于：
 ```python
 model.add(Dense(64, activation='tanh'))
 ```
 
-You can also pass an element-wise Theano function as an activation:
+元素对元素的 Theano 函数也可以用作激活函数：
 
 ```python
 def tanh(x):
@@ -24,9 +24,9 @@ model.add(Dense(64, activation=tanh))
 model.add(Activation(tanh))
 ```
 
-## Available activations
+## 激活函数列表
 
-- __softmax__: Softmax applied across inputs last dimension. Expects shape either `(nb_samples, nb_timesteps, nb_dims)` or `(nb_samples, nb_dims)`.
+- __softmax__: Softmax 应用于所有输入的最末一维。形如 `(nb_samples, nb_timesteps, nb_dims)` 或者 `(nb_samples, nb_dims)`
 - __softplus__
 - __relu__
 - __tanh__
@@ -34,6 +34,6 @@ model.add(Activation(tanh))
 - __hard_sigmoid__
 - __linear__
 
-## On Advanced Activations
+## 高级激活函数
 
-Activations that are more complex than a simple Theano function (eg. learnable activations, configurable activations, etc.) are available as [Advanced Activation layers](layers/advanced_activations.md), and can be found in the module `keras.layers.advanced_activations`. These include PReLU and LeakyReLU.
+比 Theano 函数更复杂的函数（例如，基于学习的激活函数、基于配置的激活函数等）也可以作为激活函数，参见 [Advanced Activation layers （高级激活层）](layers/advanced_activations.md)。参见如下模块 `keras.layers.advanced_activations`。高级激活层包括 PReLU 和 LeakyReLU。
