@@ -7,7 +7,7 @@
 model.compile(loss='mean_squared_error', optimizer='sgd')
 ```
 
-目标函数可以是一个内置目标函数的名称（字符串），也可以是一个输入为如下两个参数，输出为一个标量的 Theano 符号函数（Theano symbolic function）
+目标函数可以是一个内置目标函数的名称（字符串），也可以是一个输出为一个标量的 Theano 符号函数（Theano symbolic function）。该符号函数的输入为如下两个参数：
 
 - __y_true__: 数据类别标签。Theano 张量（tensor）。
 - __y_pred__: 模型输出的数据标签。 Theano 张量，与 y_true 相同大小。
