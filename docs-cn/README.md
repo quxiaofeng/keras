@@ -6,6 +6,4 @@ Keras 文档的源文件在这个目录下 `sources/`。
 ## 文档的编译
 
 - 安装 MkDocs: `sudo pip install mkdocs`
-- `cd` 进入到 `docs/` 目录然后运行:
-  - `python autogen.py`
-  - `mkdocs serve`
+- `cd` 进入到 `docs/` 目录然后运行 `mkdocs serve`
