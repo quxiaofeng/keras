@@ -26,4 +26,4 @@ model.compile(loss='mean_squared_error', optimizer='sgd')
 - __squared_hinge__：L2 平方转折点损失(平方合页损失)
 - __hinge__：转折点损失（合页损失）
 - __binary_crossentropy__：二值叉熵（也称对数损失） 
-- __categorical_crossentropy__：多类叉熵（也称多类对数损失）。 _注意_：该目标函数要求类别标签应为形如 `(样本数，类别数)` （`(nb_samples, nb_classes)`） 的二进制数组。
+- __categorical_crossentropy__：多类叉熵（也称多类对数损失）。 __注意__：该目标函数要求类别标签应为形如 `(样本数，类别数)` （`(nb_samples, nb_classes)`） 的二进制数组。
