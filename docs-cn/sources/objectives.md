@@ -18,12 +18,12 @@ model.compile(loss='mean_squared_error', optimizer='sgd')
 
 ## 内置目标函数
 
-- __mean_squared_error__ / __mse__ 均方差
-- __root_mean_squared_error__ / __rmse__ 均方根误差
-- __mean_absolute_error__ / __mae__ 平均绝对误差
-- __mean_absolute_percentage_error__ / __mape__ 平均绝对百分比误差
-- __mean_squared_logarithmic_error__ / __msle__ 平均对数平方误差
-- __squared_hinge__ L2 平方转折点损失(平方合页损失)
-- __hinge__ 转折点损失（合页损失）
-- __binary_crossentropy__: 二值叉熵（也称对数损失） 
-- __categorical_crossentropy__: 多类叉熵（也称多类对数损失）。 _注意_：该目标函数要求类别标签应为形如 `(样本数，类别数)` （`(nb_samples, nb_classes)`） 的二进制数组。
+- __mean_squared_error__ / __mse__： 均方差
+- __root_mean_squared_error__ / __rmse__： 均方根误差
+- __mean_absolute_error__ / __mae__： 平均绝对误差
+- __mean_absolute_percentage_error__ / __mape__： 平均绝对百分比误差
+- __mean_squared_logarithmic_error__ / __msle__： 平均对数平方误差
+- __squared_hinge__： L2 平方转折点损失(平方合页损失)
+- __hinge__： 转折点损失（合页损失）
+- __binary_crossentropy__： 二值叉熵（也称对数损失） 
+- __categorical_crossentropy__： 多类叉熵（也称多类对数损失）。 _注意_：该目标函数要求类别标签应为形如 `(样本数，类别数)` （`(nb_samples, nb_classes)`） 的二进制数组。
