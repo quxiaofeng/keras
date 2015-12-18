@@ -235,6 +235,19 @@ def permute_dimensions(x, pattern):
     '''
     return tf.transpose(x, perm=pattern)
 
+def repeat_elements(x, rep, axis):
+    '''Repeats the elements of a tensor along an axis, like np.repeat
+
+    If x has shape (s1, s2, s3) and axis=1, the output
+    will have shape (s1, s2 * rep, s3)
+    '''
+    x_shape = x.get_shape().as_list()
+    # slices along the repeat axis
+    splits = tf.split(axis, x_shape[axis], x)
+    # repeat each slice the given number of reps
+    x_rep = [s for s in splits for i in range(rep)]
+    return tf.concat(axis, x_rep)
+
 
 def repeat(x, n):
     '''Repeat a 2D tensor:
@@ -391,14 +404,14 @@ def rnn(step_function, inputs, initial_states,
             # if all-zero input timestep, return
             # all-zero output and unchanged states
             switch = tf.reduce_any(input)
-            output = tf.control_flow_ops.cond(switch,
-                                              lambda: output,
-                                              lambda: 0. * output)
+            output = tf.python.control_flow_ops.cond(switch,
+                                                     lambda: output,
+                                                     lambda: 0. * output)
             return_states = []
             for state, new_state in zip(states, new_states):
-                return_states.append(tf.control_flow_ops.cond(switch,
-                                                              lambda: new_state,
-                                                              lambda: state))
+                return_states.append(tf.python.control_flow_ops.cond(switch,
+                                                                     lambda: new_state,
+                                                                     lambda: state))
             states = return_states
         else:
             states = new_states
@@ -416,9 +429,9 @@ def rnn(step_function, inputs, initial_states,
 def switch(condition, then_expression, else_expression):
     '''condition: scalar tensor.
     '''
-    return tf.control_flow_ops.cond(condition,
-                                    lambda: then_expression,
-                                    lambda: else_expression)
+    return tf.python.control_flow_ops.cond(condition,
+                                           lambda: then_expression,
+                                           lambda: else_expression)
 
 
 # NN OPERATIONS

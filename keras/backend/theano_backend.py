@@ -243,6 +243,14 @@ def permute_dimensions(x, pattern):
     return x.dimshuffle(pattern)
 
 
+def repeat_elements(x, rep, axis):
+    '''Repeats the elements of a tensor along an axis, like np.repeat
+
+    If x has shape (s1, s2, s3) and axis=1, the output
+    will have shape (s1, s2 * rep, s3)
+    '''
+    return T.repeat(x, rep, axis=axis)
+
 def repeat(x, n):
     '''Repeat a 2D tensor:
 
@@ -407,15 +415,12 @@ def rnn(step_function, inputs, initial_states,
     '''
     inputs = inputs.dimshuffle((1, 0, 2))
 
-    def _step(*args):
-        global single_result
-        input = args[0]
-        states = args[1:]
+    def _step(input, *states):
         output, new_states = step_function(input, states)
         if masking:
             # if all-zero input timestep, return
             # all-zero output and unchanged states
-            switch = T.any(input)
+            switch = T.any(input, axis=-1, keepdims=True)
             output = T.switch(switch, output, 0. * output)
             return_states = []
             for state, new_state in zip(states, new_states):
